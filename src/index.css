@@ -11,14 +11,12 @@
   width: 100%;
   padding: 0 15%;
   min-height: 100vh;
-  background-color: blue;
 }
 .wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
-  background-color: red;
 }
 
 .title {
@@ -49,7 +47,6 @@
   gap: 8px;
   width: 100%;
   height: 60vh;
-  background-color: yellow;
 }
 .row {
   display: flex;
@@ -61,13 +58,21 @@
   display: flex;
   width: 100%;
   height: 100%;
-  background-color: black;
+  border-radius: 12px;
+  background-color: #20C518;
 }
 .player {
-  background-color: mintcream;
+  border: 2px solid black;
+  background-color: white;
+  background-image: url("./assets/player.svg");
 }
-.end {
-  background-color: brown;
+.wall {
+  background-color: #FF262A;
+}
+.goal {
+  border: 2px solid black;
+  background-color: white;
+  background-image: url("./assets/goal.svg");
 }
 
 .startButton {
