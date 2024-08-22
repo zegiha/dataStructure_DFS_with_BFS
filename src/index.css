@@ -1,13 +1,77 @@
-body {
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 0 15%;
+  min-height: 100vh;
+  background-color: blue;
+}
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  background-color: red;
+}
+
+.title {
+  font-weight: bold;
+  font-size: 48px;
+}
+
+.simulationContainer {
+  display: flex;
+  gap: 64px;
+  width: 100%;
+}
+.simulationWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  justify-content: center;
+  width: 100%;
+}
+.simulationTitle {
+  text-align: center;
+  font-size: 24px;
+}
+
+.simulation {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  height: 60vh;
+  background-color: yellow;
+}
+.row {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  gap: 8px;
+}
+.cell {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+}
+.player {
+  background-color: mintcream;
+}
+.end {
+  background-color: brown;
+}
+
+.startButton {
+  width: 320px;
+  padding: 24px 0;
+  background-color: green;
 }
