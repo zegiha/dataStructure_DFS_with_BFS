@@ -10,34 +10,43 @@ export default function Simulation({search}: {search: DFS | BFS}) {
   const [searchStatus, setSearchStatus] = useRecoilState(searchStatusAtom)
   const [playStatus, setPlayStatus] = useRecoilState(playStatusAtom)
   const [player, setPlayer] = useState({x: 1, y: 1});
+  const [completeModal, setCompleteModal] = useState(false)
 
   useEffect(() => {
-    console.log(playStatus)
     if(playStatus === "progress") {
-      if(search instanceof DFS) setSearchStatus({dfs: false, bfs: searchStatus.bfs})
-      else setSearchStatus({dfs: searchStatus.dfs, bfs: false})
-
+      if(search instanceof DFS) {
+      setSearchStatus((prevState) => ({...prevState, dfs: "progress"}))
+      }
+      else {
+        setSearchStatus((prevState) => ({...prevState, bfs: "progress"}))
+      }
       search.move(setPlayer).then(() => {
         setPlayer({y: 7, x: 7})
+        setCompleteModal(true)
         if(search instanceof DFS) {
-          setSearchStatus({dfs: true, bfs: searchStatus.bfs})
-          console.log(searchStatus.bfs)
+          setSearchStatus((prevState) => ({...prevState, dfs: "end"}))
         }
-        else setSearchStatus({dfs: searchStatus.dfs, bfs: true})
-
-        if(searchStatus.bfs && searchStatus.dfs) {
-          setPlayStatus("end")
+        else {
+          setSearchStatus((prevState) => ({...prevState, bfs: "end"}))
         }
       });
     } else if(playStatus === "reset") {
       setPlayer({y: 1, x: 1})
+      setCompleteModal(false)
       setPlayStatus("idle")
     }
   }, [playStatus]);
+  useEffect(() => {
+    if(searchStatus.dfs === "end" && searchStatus.bfs === "end") {
+      setSearchStatus({dfs: "idle", bfs: "idle"})
+      setPlayStatus("end")
+    }
+  }, [searchStatus]);
 
   return (
     <div className="simulation">
       {renderMap(player)}
+      {completeModal && <div className="done">완료</div>}
     </div>
   );
 }

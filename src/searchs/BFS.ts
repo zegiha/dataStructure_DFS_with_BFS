@@ -20,7 +20,6 @@ class BFS {
         const tmp = movePlayer(visit, y, x)
         const moves = tmp.res
         visit = tmp.visit
-        console.log(visit)
         visit[1][1] = true
         for (let i = 0; i < moves.length; i++) queue.push(moves[i]);
       }

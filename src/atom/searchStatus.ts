@@ -3,8 +3,8 @@ import {atom} from "recoil";
 const searchStatusAtom = atom({
   key: 'searchStatus',
   default: {
-    dfs: true,
-    bfs: true,
+    dfs: "idle",
+    bfs: "idle",
   }
 })
 

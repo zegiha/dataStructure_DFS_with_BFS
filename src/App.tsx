@@ -22,7 +22,9 @@ function App() {
             <div className="simulationTitle">BFS</div>
           </div>
         </div>
-        <RenderButton />
+        <div>
+          <RenderButton />
+        </div>
       </div>
     </div>
   );
