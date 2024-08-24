@@ -16,7 +16,7 @@ class DFS {
         setPlayer({y, x});
         if(x === 7 && y === 7) break;
 
-        await new Promise(resolve => setTimeout(resolve, 1000));
+        await new Promise(resolve => setTimeout(resolve, 200));
 
         const tmp = movePlayer(visit, y, x)
         const moves = tmp.res

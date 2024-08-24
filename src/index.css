@@ -81,6 +81,9 @@
   background-repeat: no-repeat;
   background-position: center center;
 }
+.visit {
+  background-color: #ff4719;
+}
 .done {
   display: flex;
   justify-content: center;
