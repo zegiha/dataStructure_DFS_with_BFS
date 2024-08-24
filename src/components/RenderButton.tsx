@@ -1,16 +1,19 @@
-import React, {useEffect, useState} from "react";
+import React, {Fragment, useEffect, useState} from "react";
 import {useRecoilState} from "recoil";
 import playStatusAtom from "../atom/playStatusAtom";
+import Modal from "./Modal";
 
 export default function RenderButton() {
   const [style, setStyle] = useState("")
   const [contents, setContents] = useState("")
+  const [modal, setModal] = useState(false)
   const [playStatus, setPlayStatus] = useRecoilState(playStatusAtom)
 
   function playStatusHandler() {
     switch (playStatus) {
       case "idle":
         setPlayStatus("progress")
+        setModal(false)
         break
       case "end":
         setPlayStatus("reset")
@@ -23,6 +26,7 @@ export default function RenderButton() {
       case "idle":
         setStyle("startButton")
         setContents("시작하기")
+        setModal(true)
         break
       case "progress":
         setStyle("progressButton")
@@ -35,5 +39,10 @@ export default function RenderButton() {
     }
   }, [playStatus]);
 
-  return <div className={style} onClick={() => playStatusHandler()}>{contents}</div>
+  return (
+    <Fragment>
+      {modal && <Modal />}
+      <div className={style} onClick={() => playStatusHandler()}>{contents}</div>
+    </Fragment>
+  );
 }

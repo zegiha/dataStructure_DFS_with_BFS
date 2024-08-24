@@ -23,7 +23,9 @@ function App() {
           </div>
         </div>
         <div>
-          <RenderButton />
+          <div className="buttonContainer">
+            <RenderButton />
+          </div>
         </div>
       </div>
     </div>
