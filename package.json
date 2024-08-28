@@ -10,6 +10,7 @@
     "@types/node": "^16.18.105",
     "@types/react": "^18.3.4",
     "@types/react-dom": "^18.3.0",
+    "gh-pages": "^6.1.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-scripts": "5.0.1",
@@ -21,8 +22,11 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy" : "yarn build",
+    "deploy" : "gh-pages -d build"
   },
+  "homepage": "https://zegiha.github.io/dataStructure_DFS_with_BFS/",
   "eslintConfig": {
     "extends": [
       "react-app",
